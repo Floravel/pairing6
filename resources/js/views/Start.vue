@@ -1,5 +1,5 @@
 <template>
-    <div>Componento!</div>
+    <div class="bg-green-500">Componento!</div>
 </template>
 
 <script>
