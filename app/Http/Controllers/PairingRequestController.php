@@ -33,12 +33,12 @@ class PairingRequestController extends Controller
             'data.attributes.user_id' => 'required',
             'data.attributes.title' => 'required',
             'data.attributes.presentation' => 'required',
-            'data.attributes.technology_stack' => 'required',
+            'data.attributes.technology_stacks' => 'required',
         ]);
 
 /*        dd($request->user());*/
 
-        $pairing = $request->user()->pairingRequests()->create([
+        $pairingRequest = $request->user()->pairingRequests()->create([
             'user_id' => $data['data']['attributes']['user_id'],
             'title' => $data['data']['attributes']['title'],
             'presentation' => $data['data']['attributes']['presentation'],
@@ -46,26 +46,28 @@ class PairingRequestController extends Controller
 
     //    dd($data['data']['attributes']['technology_stack']);
 
-        $names = $data['data']['attributes']['technology_stack'];
+        $names = $data['data']['attributes']['technology_stacks'];
 
-        $stacks = [];
+        // $stacks = [];
 
        // $pairing->technologyStacks()->attach($names);
 
 
         foreach ($names as $name) {
-            $stacks[] = $pairing->technologyStacks()->firstOrcreate(
+            $stacks[] = $pairingRequest->technologyStacks()->firstOrcreate(
                 [
                     'name' => $name,
                 ]
             );
         }
 
-        $pairing = PairingRequest::all()->first();
+        $pairingRequest = PairingRequest::all()->first();
 
-
-
-        return response($data, 201);
+        return response(
+            [
+                'data' => array_merge(['type' => 'pairing_request'] , $data['data']),
+                'links' => ['self' => url('/pairingRequests/'.$pairingRequest->id)]
+            ], 201);
     }
 
     /**
