@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\PairingRequest;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -43,5 +44,10 @@ class UserFactory extends Factory
                 'email_verified_at' => null,
             ];
         });
+    }
+
+    public function pairingRequests()
+    {
+        return $this->hasMany(PairingRequest::class);
     }
 }
