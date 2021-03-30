@@ -23,15 +23,18 @@ class SearchForPairingPartnerTest extends TestCase
             'data' => [
                 'type' => 'pairing_request',
                 'attributes' => [
-                    'user_id' => $user->id,
                     'title' => 'testtitle',
+                    'user_id' => $user->id,
                     'presentation' => 'The presentation for my cool pairing request',
                     'technology_stacks' => ['PHP', 'Html', 'JavaScript'],
                 ]
             ]
         ]);
 
+
+
         $pairingRequest = PairingRequest::all()->first();
+
 
 
         $this->assertCount(1, PairingRequest::all());
@@ -45,11 +48,13 @@ class SearchForPairingPartnerTest extends TestCase
         }
 
 
+
         $response->assertStatus(201)
             ->assertJson([
                 'data' => [
                     'type' => 'pairing_request',
                     'attributes' => [
+                        'pairing_request_id' => $pairingRequest->id,
                         'user_id' => $pairingRequest->user->id,
                         'title' => $pairingRequest->title,
                         'presentation' => $pairingRequest->presentation,
@@ -60,5 +65,6 @@ class SearchForPairingPartnerTest extends TestCase
                     'self' => url('/pairingRequests/' . $pairingRequest->id)
                 ]
             ]);
+
     }
 }
