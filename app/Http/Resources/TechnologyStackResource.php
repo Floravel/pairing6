@@ -22,7 +22,7 @@ class TechnologyStackResource extends JsonResource
                     'name' => $this->name,
                 ],
                 'links' => [
-                    'self' => url('/technologyStacks/'.$this->id),
+                    'self' => url('/technologyStack/'.$this->id),
                 ]
             ]
         ];

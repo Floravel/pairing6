@@ -20,6 +20,7 @@ class PairingRequestResource extends JsonResource
             $techStacks[] = new TechnologyStackResource($technologyStack);
         }
 
+
         return([
             'data' => [
                 'type' => 'pairing_request',
@@ -29,7 +30,7 @@ class PairingRequestResource extends JsonResource
                     'user_id' => $this->user->id,
                     'requested_by' => new UserResource($this->user),
                     'presentation' => $this->presentation,
-                    'technology_stacks' => $techStacks,
+                    'used_technology_stack' => new TechnologyStackCollection($this->technologyStacks),
                 ]
             ],
             'links' => [

@@ -13,6 +13,10 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        $i = 42;
+        $i++;
+        echo $i;
+
         $this->assertTrue(true);
     }
 }

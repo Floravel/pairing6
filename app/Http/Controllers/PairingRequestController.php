@@ -20,7 +20,7 @@ class PairingRequestController extends Controller
      */
     public function index()
     {
-        return new PairingRequestCollection(PairingRequest::all());
+        return new PairingRequestCollection(request()->user()->pairingRequests);
     }
 
     /**

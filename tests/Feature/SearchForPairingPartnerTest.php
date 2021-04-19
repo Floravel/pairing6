@@ -13,6 +13,16 @@ class SearchForPairingPartnerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function string_test()
+    {
+        $response = $this->get('/aaa');
+
+        echo"fefef";
+
+        $response->assertStatus(200);
+    }
+
+    /** @test */
     public function a_user_can_post_a_pairing_request()
     {
         $this->withoutExceptionHandling();
@@ -32,9 +42,7 @@ class SearchForPairingPartnerTest extends TestCase
         ]);
 
 
-
         $pairingRequest = PairingRequest::all()->first();
-
 
 
         $this->assertCount(1, PairingRequest::all());
@@ -48,7 +56,6 @@ class SearchForPairingPartnerTest extends TestCase
         }
 
 
-
         $response->assertStatus(201)
             ->assertJson([
                 'data' => [
@@ -58,7 +65,25 @@ class SearchForPairingPartnerTest extends TestCase
                         'user_id' => $pairingRequest->user->id,
                         'title' => $pairingRequest->title,
                         'presentation' => $pairingRequest->presentation,
-                        'technology_stacks' => $techStacks,
+                        'used_technology_stack' => [
+                            'data' => [
+                                ['data' => [
+                                    'attributes' => [
+                                        'name' => $techStacks[0]
+                                    ]
+                                ]],
+                                ['data' => [
+                                    'attributes' => [
+                                        'name' => $techStacks[1]
+                                    ]
+                                ]],
+                                ['data' => [
+                                    'attributes' => [
+                                        'name' => $techStacks[2]
+                                    ]
+                                ]]
+                            ]
+                        ],
                     ]
                 ],
                 'links' => [
