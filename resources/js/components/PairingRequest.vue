@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-yellow-300 rounded shadow overflow-hidden">
+    <div class="bg-blue-200 rounded shadow overflow-hidden">
         <div class="flex flex-col p-4">
             <div class="flex items-center">
                 <div>

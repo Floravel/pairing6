@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/aaa', function() {
 
     $string = 'unicomp6.unicomp.net - - [01/Jul/1995:00:00:06 -0400] "GET /shuttle/countdown/ HTTP/1.0" 200 3985
@@ -55,7 +56,6 @@ Route::get('/aaa', function() {
   //  file_put_contents('gifs_test.txt', var_export($gifArray, true));
 
     return "aaa";
-
 });
 
 
@@ -123,5 +123,3 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/{any}', [\App\Http\Controllers\AppController::class, 'index'])->where('any', '.*')->middleware('auth')->name('home');
-
-

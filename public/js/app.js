@@ -2036,7 +2036,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Nav"
 });
@@ -38484,7 +38483,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-yellow-300 rounded shadow overflow-hidden" },
+    { staticClass: "bg-blue-200 rounded shadow overflow-hidden" },
     [
       _c("div", { staticClass: "flex flex-col p-4" }, [
         _vm._m(0),
