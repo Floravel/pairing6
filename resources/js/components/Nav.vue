@@ -1,8 +1,8 @@
 <template>
     <div class="bg-gray-400 border-solid border-2 border-bottom-0 border-dark border-gray-900">
         <div class="flex justify-items-center">
-            <div class="w-1/3">
-                <svg class="w-1/2 h-5/6" version="1.0" xmlns="http://www.w3.org/2000/svg"
+            <div class="w-2/12">
+                <svg class="w-full h-5/6" version="1.0" xmlns="http://www.w3.org/2000/svg"
                      width="786.000000pt" height="185.000000pt" viewBox="0 0 786.000000 185.000000"
                      preserveAspectRatio="xMidYMid meet">
 
@@ -90,28 +90,19 @@ m1245 282 c28 -22 9 -40 -34 -33 -51 8 -81 -14 -81 -59 0 -38 34 -70 64 -59
                     </g>
                 </svg>
             </div>
-            <div class="w-1/3 my-4 grid justify-items-center">
-                <button type="button" class="bg-red-700 text-gray-200 rounded-full hover:bg-red-800 px-4 py-2 focus:outline-none">Post new Pairing Request!</button>
-            </div>
-            <div class="w-1/3 grid justify-items-end my-4">
-                <div class="flex">
-                    <div class="mr-1">G-Kreis</div>
-                    <div>Günther Raffizius</div>
-                </div>
-            </div>
-        </div>
-        <div class="mx-9 rounded flex justify-items-center justify-center bg-gray-400">
-            <div class="w-2/3">
-                <svg class="absolute fill-current w-10 h-10 mt-5 ml-2 hover:-rotate-1 hover:text-blue-400"
-                     version="1.0" xmlns="http://www.w3.org/2000/svg"
-                     width="980.000000pt" height="980.000000pt" viewBox="0 0 980.000000 980.000000"
-                     preserveAspectRatio="xMidYMid meet" >
-                    <metadata>
-                        this is a scoop
-                    </metadata>
-                    <g transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
-                       fill="#000000" stroke="none">
-                        <path d="M1299 9790 c-425 -68 -808 -317 -1051 -685 -104 -156 -168 -303 -215
+            <div class="w-8/12 mx-4 justify-between flex flex-row">
+
+                <div class="w-2/3">
+                    <svg class="absolute fill-current w-10 h-10 mt-5 ml-2 hover:-rotate-1 hover:text-blue-400"
+                         version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="980.000000pt" height="980.000000pt" viewBox="0 0 980.000000 980.000000"
+                         preserveAspectRatio="xMidYMid meet" >
+                        <metadata>
+                            this is a scoop
+                        </metadata>
+                        <g transform="translate(0.000000,980.000000) scale(0.100000,-0.100000)"
+                           fill="#000000" stroke="none">
+                            <path d="M1299 9790 c-425 -68 -808 -317 -1051 -685 -104 -156 -168 -303 -215
 -493 -26 -101 -27 -120 -27 -347 -1 -228 1 -246 26 -347 104 -412 360 -762
 714 -974 148 -89 360 -169 519 -195 112 -19 474 -15 568 5 173 38 417 137 533
 216 l46 33 203 -203 202 -202 6 -87 c6 -109 35 -185 97 -259 98 -117 875 -879
@@ -122,11 +113,26 @@ m1245 282 c28 -22 9 -40 -34 -33 -51 8 -81 -14 -81 -59 0 -38 34 -70 64 -59
 -50 508 -217 661 -423 340 -459 255 -1132 -187 -1490 -383 -310 -906 -334
 -1314 -59 -82 55 -223 196 -278 278 -134 198 -194 394 -194 631 1 263 77 477
 244 685 251 312 668 460 1068 378z"/>
-                    </g>
-                </svg>
-                <input type="text" placeholder="Search for pair programming project!" class="placeholder-gray-600 w-full mt-2 mb-6 px-8 py-2 border-2 rounded-full text-gray-800 focus:outline-none focus:border-blue-700 bg-gray-300">
+                        </g>
+                    </svg>
+                    <input type="text" placeholder="Search for pair programming project!" class="placeholder-gray-600 w-full mt-2 mb-6 px-8 py-2 border-2 rounded-full text-gray-800 focus:outline-none focus:border-blue-700 bg-gray-300">
+                </div>
+
+                <button type="button" class="w-1/3 ml-1 mt-2 mb-6 border-2 px-8 py-2 rounded-full bg-red-700 text-gray-200 hover:bg-red-800 hover:border-blue-700 focus:outline-none">New Pairing Request!</button>
             </div>
+
+            <div class="w-2/12 grid justify-items-end my-4">
+                <div class="flex">
+                    <div class="mr-1">G-Kreis</div>
+                    <div>Günther Raffizius</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-9 rounded flex justify-items-center justify-center bg-gray-400">
+
        </div>
+
     </div>
 </template>
 

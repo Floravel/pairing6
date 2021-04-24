@@ -14,8 +14,8 @@ class PairingRequestTechnologyStackTable extends Migration
     public function up()
     {
         Schema::create('pairing_request_technology_stack', function (Blueprint $table) {
-            $table->integer('pairing_request_id')->unsigned();
-            $table->integer('technology_stack_id')->unsigned();
+            $table->bigInteger('pairing_request_id')->unsigned();
+            $table->bigInteger('technology_stack_id')->unsigned();
 
             $table->foreign('pairing_request_id')->references('id')->on('pairing_requests')
                 ->onDelete('cascade');

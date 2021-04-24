@@ -13,16 +13,6 @@ class SearchForPairingPartnerTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function string_test()
-    {
-        $response = $this->get('/aaa');
-
-        echo"fefef";
-
-        $response->assertStatus(200);
-    }
-
-    /** @test */
     public function a_user_can_post_a_pairing_request()
     {
         $this->withoutExceptionHandling();

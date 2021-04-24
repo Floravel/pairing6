@@ -1,6 +1,6 @@
 <template>
-    <div className="flex flex-col items-center py-4">
-        <PairingRequest/>
+    <div class="flex flex-col items-center">
+        <PairingRequest v-for="pairingRequest in pairingRequests.data" :key="pairingRequest.data.pairing_request_id" :pairingRequest="pairingRequest" />
     </div>
 </template>
 
@@ -12,6 +12,22 @@ export default {
 
     components: {
         PairingRequest
+    },
+
+    data: () => {
+        return {
+            pairingRequests: []
+        }
+    },
+
+    mounted() {
+        axios.get('/api/pairingRequest')
+        .then( res =>{
+            this.pairingRequests = res.data
+        })
+        .catch( error => {
+            console.log('Unable to fetch pairing requests')
+        });
     }
 }
 </script>
@@ -19,3 +35,4 @@ export default {
 <style scoped>
 
 </style>
+0

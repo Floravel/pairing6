@@ -1,15 +1,16 @@
 <template>
-    <div class="bg-blue-200 rounded shadow overflow-hidden">
+    <div class="bg-blue-100 rounded shadow overflow-hidden mb-4 p-4">
         <div class="flex flex-col p-4">
             <div class="flex items-center">
                 <div>
                     <img src="https://i.pinimg.com/originals/7c/e9/bf/7ce9bf4925f798487d8a09271af891ab.jpg" height="640" width="480" alt="profile for user" class="w-8 h-8  object-cover rounded-full"/>
                 </div>
                 <div class="ml-6">
-                    <div class="text-sm font-bold">Name User</div>
-                    <div class="text-sm text-gray-600">12 Minutes</div>
+                    <div class="text-sm font-bold">{{ pairingRequest.data.attributes.requested_by.data.attributes.name }}</div>
+                    <div class="text-sm text-gray-600">{{ pairingRequest.data.attributes.requested_at }}</div>
                 </div>
             </div>
+        </div>
 
             <div class="mt-4">
                 <p>
@@ -52,7 +53,11 @@
 
 <script>
 export default {
-    name: "PairingRequest"
+    name: "PairingRequest",
+
+    props: [
+        'pairingRequest'
+    ]
 }
 </script>
 
