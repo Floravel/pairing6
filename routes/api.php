@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')
     ->group(function() {
-        Route::apiResources(
-            ['pairingRequest' => \App\Http\Controllers\PairingRequestController::class]
-        );
+        Route::apiResources([
+            'pairingRequest' => \App\Http\Controllers\PairingRequestController::class,
+            'users' => \App\Http\Controllers\UserController::class,
+            '/users/{user}/pairingRequests' => \App\Http\Controllers\UserPairingRequestController::class
+        ]);
     });
 

@@ -24,8 +24,6 @@ class RetrievePairingRequestsTest extends TestCase
 
         $pairingRequests = PairingRequest::factory(3)->create(['user_id' => $user->id]);
 
-
-
         $technologyStacks = ['PHP', 'JavaScript', 'Html5', 'Delphi', 'Vue'];
 
         $z = 5;
