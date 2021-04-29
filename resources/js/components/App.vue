@@ -1,16 +1,17 @@
 <template>
-    <div class="bg-blue-500">
-        <Nav class="fixed-top"></Nav>
+    <div class="bg-blue-500 flex flex-1 flex-col h-screen overflow-y-hidden">
+        <Nav class="fixed"/>
 
         <div class="flex overflow-y-hidden flex-1">
             <Sidebar/>
 
-            <div class="overflow-x-hidden w-2/3 mr-9">
+            <div class="overflow-x-hidden w-2/3">
                 <router-view></router-view>
             </div>
         </div>
-        <Footer/>
-
+        <div>
+            <Footer />
+        </div>
     </div>
 </template>
 

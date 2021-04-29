@@ -18,6 +18,7 @@ class CreatePairingRequestsTable extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->text('presentation');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

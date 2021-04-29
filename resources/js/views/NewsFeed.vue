@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center py-4">
         <PairingRequest v-for="pairingRequest in pairingRequests.data" :key="pairingRequest.data.pairing_request_id" :pairingRequest="pairingRequest" />
     </div>
 </template>

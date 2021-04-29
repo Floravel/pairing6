@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-400 border-solid border-2 border-bottom-0 border-dark border-gray-900">
+    <div class="bg-gray-400 border-solid border-dark border-gray-900 h-17 p-1 flex items-center border-b-2 shadow">
         <div class="flex justify-items-center">
             <div class="w-2/12">
                 <svg class="w-full h-5/6" version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -121,16 +121,15 @@ m1245 282 c28 -22 9 -40 -34 -33 -51 8 -81 -14 -81 -59 0 -38 34 -70 64 -59
                 <button type="button" class="w-1/3 ml-1 mt-2 mb-6 border-2 px-8 py-2 rounded-full bg-red-700 text-gray-200 hover:bg-red-800 hover:border-blue-700 focus:outline-none">New Pairing Request!</button>
             </div>
 
-            <div class="w-2/12 grid justify-items-end my-4">
-                <div class="flex">
-                    <div class="mr-1">G-Kreis</div>
-                    <div>Günther Raffizius</div>
-                </div>
+            <div class="justify-between flex flex-row py-2">
+                <div class="mr-1 py-3">G-Kreis</div>
+                <div class="py-3">Günther Raffizius</div>
             </div>
+
         </div>
 
-        <div class="mx-9 rounded flex justify-items-center justify-center bg-gray-400">
-
+        <div class="mx-9 rounded flex justify-items-center justify-center bg-gray-400 pb-3">
+            Settings
        </div>
 
     </div>

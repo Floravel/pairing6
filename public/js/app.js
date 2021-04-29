@@ -1864,6 +1864,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2065,7 +2066,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Nav"
 });
@@ -2083,6 +2083,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -38151,9 +38179,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-blue-500" },
+    {
+      staticClass: "bg-blue-500 flex flex-1 flex-col h-screen overflow-y-hidden"
+    },
     [
-      _c("Nav", { staticClass: "fixed-top" }),
+      _c("Nav", { staticClass: "fixed" }),
       _vm._v(" "),
       _c(
         "div",
@@ -38163,7 +38193,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "overflow-x-hidden w-2/3 mr-9" },
+            { staticClass: "overflow-x-hidden w-2/3" },
             [_c("router-view")],
             1
           )
@@ -38171,7 +38201,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("Footer")
+      _c("div", [_c("Footer")], 1)
     ],
     1
   )
@@ -38314,7 +38344,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "bg-gray-400 border-solid border-2 border-bottom-0 border-dark border-gray-900"
+        "bg-gray-400 border-solid border-dark border-gray-900 h-17 p-1 flex items-center border-b-2 shadow"
     },
     [
       _c("div", { staticClass: "flex justify-items-center" }, [
@@ -38584,10 +38614,14 @@ var render = function() {
         _vm._m(0)
       ]),
       _vm._v(" "),
-      _c("div", {
-        staticClass:
-          "mx-9 rounded flex justify-items-center justify-center bg-gray-400"
-      })
+      _c(
+        "div",
+        {
+          staticClass:
+            "mx-9 rounded flex justify-items-center justify-center bg-gray-400 pb-3"
+        },
+        [_vm._v("\n            Settings\n       ")]
+      )
     ]
   )
 }
@@ -38596,12 +38630,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-2/12 grid justify-items-end my-4" }, [
-      _c("div", { staticClass: "flex" }, [
-        _c("div", { staticClass: "mr-1" }, [_vm._v("G-Kreis")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("Günther Raffizius")])
-      ])
+    return _c("div", { staticClass: "justify-between flex flex-row py-2" }, [
+      _c("div", { staticClass: "mr-1 py-3" }, [_vm._v("G-Kreis")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "py-3" }, [_vm._v("Günther Raffizius")])
     ])
   }
 ]
@@ -38629,7 +38661,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "bg-blue-100 rounded shadow overflow-hidden mb-4 p-4" },
+    {
+      staticClass: "bg-blue-100 rounded shadow overflow-hidden mb-4 p-4 w-full"
+    },
     [
       _c("div", { staticClass: "flex flex-col p-4" }, [
         _c("div", { staticClass: "flex items-center" }, [
@@ -38648,17 +38682,71 @@ var render = function() {
             _c("div", { staticClass: "text-sm text-gray-600" }, [
               _vm._v(_vm._s(_vm.pairingRequest.data.attributes.requested_at))
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "ml-6 text-2xl" }, [
+            _vm._v(
+              "\n                " +
+                _vm._s(_vm.pairingRequest.data.attributes.title) +
+                "\n            "
+            )
           ])
         ])
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "mt-4" }, [
+        _vm._v("\n\n        Used Technologies:\n\n        "),
+        _vm.pairingRequest.data.attributes.used_technology_stack.data.length > 0
+          ? _c(
+              "ul",
+              _vm._l(
+                _vm.pairingRequest.data.attributes.used_technology_stack.data,
+                function(techStack) {
+                  return _c("li", { key: techStack.data.technology_stack_id }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "text-yellow-500 font-bold hover:text-red-600",
+                        attrs: {
+                          href:
+                            "technologyStack/" +
+                            techStack.data.technology_stack_id
+                        }
+                      },
+                      [_vm._v(_vm._s(techStack.data.attributes.name))]
+                    )
+                  ])
+                }
+              ),
+              0
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mt-4" }, [
+        _c("p", [
+          _vm._v(
+            "\n            " +
+              _vm._s(_vm.pairingRequest.data.attributes.presentation) +
+              "\n        "
+          )
+        ])
+      ]),
       _vm._v(" "),
        false
         ? 0
         : _vm._e(),
       _vm._v(" "),
-      _vm._m(2),
+      _c("div", { staticClass: "w-full" }, [
+        _c("img", {
+          staticClass: "w-full",
+          attrs: {
+            src: _vm.pairingRequest.data.attributes.image,
+            alt: "post image"
+          }
+        })
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -38684,7 +38772,7 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
-            _c("p", [_vm._v(" Jane Smith and 137 others")])
+            _c("p", [_vm._v("Jane Smith and 137 others")])
           ]),
           _vm._v(" "),
           _c("p", [_vm._v("1123 Comments")])
@@ -38699,7 +38787,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "mr-3 flex justify-center py-2 rounded-lg text-sm text-gray-700 w-full hover:bg-red-600 bg-yellow-500"
+                "mr-3 flex justify-center py-2 rounded-lg text-sm text-gray-700 w-full hover:bg-red-700 bg-yellow-500 hover:text-gray-50"
             },
             [
               _c(
@@ -38722,7 +38810,7 @@ var render = function() {
               ),
               _vm._v(" "),
               _c("p", { staticClass: "ml-2" }, [
-                _vm._v("\n                    Like\n                ")
+                _vm._v("\n                Like\n            ")
               ])
             ]
           ),
@@ -38731,7 +38819,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "ml-3 flex justify-center py-2 rounded-lg text-sm text-gray-700 w-full hover:bg-red-600 bg-yellow-500"
+                "ml-3 flex justify-center py-2 rounded-lg text-sm text-gray-700 w-full hover:bg-red-700 bg-yellow-500 hover:text-gray-50"
             },
             [
               _c(
@@ -38778,29 +38866,6 @@ var staticRenderFns = [
         }
       })
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mt-4" }, [
-      _c("p", [_vm._v("\n                Not having fun at all\n            ")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "w-full" }, [
-      _c("img", {
-        staticClass: "w-full",
-        attrs: {
-          src:
-            "https://www.pixelstalk.net/wp-content/uploads/2016/04/Landscape-wallpaper-hd-pictures-download.jpg",
-          alt: "post image"
-        }
-      })
-    ])
   }
 ]
 render._withStripped = true
@@ -38834,7 +38899,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "w-1/3 bg-gray-100 p-4 ml-9 border-r-2 border-gray-400" },
+      { staticClass: "w-1/3 bg-gray-100 p-4 border-r-2 border-gray-400" },
       [
         _c("h2", { staticClass: "font-bold text-2xl tracking-tight" }, [
           _vm._v("Home")
@@ -38867,7 +38932,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex flex-col items-center" },
+    { staticClass: "flex flex-col items-center py-4" },
     _vm._l(_vm.pairingRequests.data, function(pairingRequest) {
       return _c("PairingRequest", {
         key: pairingRequest.data.pairing_request_id,

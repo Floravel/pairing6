@@ -75,7 +75,7 @@
 {{--            </div>--}}
 {{--        </nav>--}}
 
-        <main class="py-0 h-full">
+        <main class="py-0 h-screen">
             @yield('content')
         </main>
     </div>

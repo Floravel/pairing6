@@ -31,6 +31,7 @@ class PairingRequestResource extends JsonResource
                     'requested_by' => new UserResource($this->user),
                     'requested_at' =>  $this->created_at->DiffForHumans(),
                     'presentation' => $this->presentation,
+                    'image' => $this->image,
                     'used_technology_stack' => new TechnologyStackCollection($this->technologyStacks),
                 ]
             ],
