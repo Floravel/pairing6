@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center py-4 mb-4 mx-4 sm:mt-18 md:mt-16 lg:mt-12 xl:mt-8 mt-16">
+    <div class="flex flex-col items-center py-4 mb-4 mx-4">
         <p v-if="loading" class="text-white">Loading pairing requests...</p>
         <PairingRequest v-else v-for="pairingRequest in pairingRequests.data" :key="pairingRequest.data.pairing_request_id" :pairingRequest="pairingRequest" />
     </div>

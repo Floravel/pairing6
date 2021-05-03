@@ -2,10 +2,10 @@
     <div class="bg-blue-500 flex flex-1 flex-col h-screen overflow-y-hidden">
         <Nav class="fixed"/>
 
-        <div class="mt-12 flex overflow-y-hidden flex-1">
-            <Sidebar class="sm:mt-18 md:mt-22 lg:mt-12 xl:mt-8 mt-20" />
+        <div class="flex overflow-y-hidden flex-1">
+            <Sidebar class="mt-18"/>
 
-            <div class="scroll-bar-hidden overflow-x-hidden w-2/3">
+            <div class="scroll-bar-hidden overflow-x-hidden w-2/3 p-4">
                 <router-view></router-view>
             </div>
         </div>

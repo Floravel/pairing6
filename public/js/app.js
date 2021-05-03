@@ -2277,6 +2277,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Show",
@@ -2291,7 +2312,24 @@ __webpack_require__.r(__webpack_exports__);
       pairingRequestLoading: true
     };
   },
-  mounted: function mounted() {}
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/users/' + this.$route.params.userId).then(function (res) {
+      _this.user = res.data;
+    })["catch"](function (error) {
+      console.log('unable to fetch the users data from server');
+    })["finally"](function () {
+      _this.userLoading = false;
+    });
+    axios.get('/api/users/' + this.$route.params.userId + '/pairingRequests').then(function (res) {
+      _this.pairingRequests = res.data;
+    })["catch"](function (error) {
+      console.log('unable to fetch the pairing request data');
+    })["finally"](function () {
+      _this.pairingRequestLoading = false;
+    });
+  }
 });
 
 /***/ }),
@@ -2388,27 +2426,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _views_NewsFeed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/NewsFeed */ "./resources/js/views/NewsFeed.vue");
-/* harmony import */ var _views_Start__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Start */ "./resources/js/views/Start.vue");
-/* harmony import */ var _views_Users_Show__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/Users/Show */ "./resources/js/views/Users/Show.vue");
+/* harmony import */ var _views_NewsFeed__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./views/NewsFeed */ "./resources/js/views/NewsFeed.vue");
+/* harmony import */ var _views_Start__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/Start */ "./resources/js/views/Start.vue");
+/* harmony import */ var _views_Users_Show__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/Users/Show */ "./resources/js/views/Users/Show.vue");
 
 
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
+vue__WEBPACK_IMPORTED_MODULE_3__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_4__.default);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_4__.default({
   mode: "history",
   routes: [{
     path: '/',
     name: 'home',
-    component: _views_NewsFeed__WEBPACK_IMPORTED_MODULE_1__.default
+    component: _views_NewsFeed__WEBPACK_IMPORTED_MODULE_0__.default
   }, {
     path: '/users/:userId',
     name: 'user.show',
-    component: _views_Users_Show__WEBPACK_IMPORTED_MODULE_3__.default
+    component: _views_Users_Show__WEBPACK_IMPORTED_MODULE_2__.default
   }]
 }));
 
@@ -38823,15 +38861,13 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "mt-12 flex overflow-y-hidden flex-1" },
+        { staticClass: "flex overflow-y-hidden flex-1" },
         [
-          _c("Sidebar", {
-            staticClass: "sm:mt-18 md:mt-22 lg:mt-12 xl:mt-8 mt-20"
-          }),
+          _c("Sidebar", { staticClass: "mt-18" }),
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "scroll-bar-hidden overflow-x-hidden w-2/3" },
+            { staticClass: "scroll-bar-hidden overflow-x-hidden w-2/3 p-4" },
             [_c("router-view")],
             1
           )
@@ -38982,7 +39018,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "bg-gray-400 border-solid border-dark border-gray-900 h-17 p-1 flex items-center border-b-2 shadow"
+        "bg-gray-400 border-solid border-dark border-gray-900 h-17 p-1 flex items-center border-b-2 sticky"
     },
     [
       _c("div", { staticClass: "flex justify-items-center" }, [
@@ -39570,10 +39606,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass:
-        "flex flex-col items-center py-4 mb-4 mx-4 sm:mt-18 md:mt-16 lg:mt-12 xl:mt-8 mt-16"
-    },
+    { staticClass: "flex flex-col items-center py-4 mb-4 mx-4" },
     [
       _vm.loading
         ? _c("p", { staticClass: "text-white" }, [
@@ -39639,9 +39672,88 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mt-12" }, [_vm._v("rggrgrgaegerg")])
+  return _c(
+    "div",
+    { staticClass: "flex flex-col items-center" },
+    [
+      _c("div", { staticClass: "relative" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "absolute bottom-0 left-0 -mb-8 ml-12 z-20 flex items-center"
+          },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            !_vm.userLoading
+              ? _c("p", { staticClass: "ml-4 text-2xl text-gray-200" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(_vm.user.data.attributes.name) +
+                      "\n            "
+                  )
+                ])
+              : _vm._e()
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm.pairingRequestLoading
+        ? _c("p", [_vm._v("\n        Loading Pairing Requests\n    ")])
+        : _vm._l(_vm.pairingRequests.data, function(pairingRequest) {
+            return _c("pairingRequest", {
+              key: pairingRequest.data.attributes.pairing_request_id,
+              attrs: { pairingRequest: pairingRequest }
+            })
+          }),
+      _vm._v(" "),
+      !_vm.pairingRequestLoading && _vm.pairingRequests.data.length < 1
+        ? _c("p", [_vm._v("No pairing Requests found. Get started!")])
+        : _vm._e()
+    ],
+    2
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "w-100 h-64 overflow-hidden z-50 rounded" },
+      [
+        _c("img", {
+          staticClass: "object-cover w-full",
+          attrs: {
+            src:
+              "https://www.technocrazed.com/wp-content/uploads/2015/12/Landscape-wallpaper-7.jpg",
+            alt: "user background-image"
+          }
+        })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-32" }, [
+      _c("img", {
+        staticClass:
+          "object-cover w-32 h-32 rounded-full border-4 border-gray-200 shadow-2xl",
+        attrs: {
+          src:
+            "https://i.pinimg.com/originals/7c/e9/bf/7ce9bf4925f798487d8a09271af891ab.jpg",
+          alt: "user profile image"
+        }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
